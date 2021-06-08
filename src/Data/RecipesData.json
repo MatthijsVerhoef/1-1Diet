@@ -1,0 +1,115 @@
+[{
+        "recipe_id": 1,
+        "pdf_path": "PDFpath1",
+        "popularity": 3,
+        "views": 8765,
+        "preparation": "preparation1",
+        "banner_image": null,
+        "description": "description1",
+        "read_time": [
+            5400,
+            0
+        ],
+        "average_ranking": null,
+        "likes": null,
+        "title": "title1",
+        "step": 5,
+        "persons": 6,
+        "ingredients": "ingredients1"
+    },
+    {
+        "recipe_id": 2,
+        "pdf_path": "src/PDF/s1-wintersoep-022020.pdf",
+        "popularity": 3,
+        "views": 8967,
+        "preparation": "Snijd de bleekselderij en de prei in stukken.",
+        "banner_image": null,
+        "description": "Doe de stukken in een pan en giet er voldoende water aan toe, tot alles onder water staat. Voeg naar smaak de bouillonpoeder toe. Mix de groenten met een staafmixer fijn. Voeg het gekookte varkensvlees toe en verwarm het geheel nog eens, indien nodig.",
+        "read_time": [
+            1800,
+            0
+        ],
+        "average_ranking": null,
+        "likes": null,
+        "title": "Smakelijke wintersoep",
+        "step": 1,
+        "persons": 1,
+        "ingredients": "125 gr. bleekselderij en prei in totaal | 125 gr. varkenslap, gekookt en in blokjes | The 1:1 Diet Golden Vegetable"
+    },
+    {
+        "recipe_id": 3,
+        "pdf_path": "src/PDF/s2-mexicaanse-salade-042020.pdf",
+        "popularity": 4,
+        "views": 7654,
+        "preparation": "Voor de salsa meng je de vleestomaat met citroensap, chilipoeder, knoflook en de helft van de rode ui met een staafmixer tot een gladde massa.",
+        "banner_image": null,
+        "description": "Rul het gehakt tot het gaar is. Snijd de onderkant van de sla af en haal de blaadjes los. Verspreid de blaadjes over een bord en verdeel de cherrytomaatjes, overige rode ui, avocado en het gehakt hierover. Garneer het geheel af met de yoghurt en de salsa.",
+        "read_time": [
+            1800,
+            0
+        ],
+        "average_ranking": null,
+        "likes": null,
+        "title": "Mexicaanse salade",
+        "step": 2,
+        "persons": 1,
+        "ingredients": "75 gr. Romaine sla | 125 gr. rundergehakt, bereid | ½ avocado, in stukjes | 4 cherrytomaatjes, gesneden | ½ rode ui, gesneden | 30 gr. yoghurt | ½ vleestomaat | ½ tl chilipoeder | ½ teentje knoflook | 1 el citroensap"
+    },
+    {
+        "recipe_id": 4,
+        "pdf_path": "src/PDF/s2-ovenschotelauberginebloemkool-022020.pdf",
+        "popularity": 5,
+        "views": 6541,
+        "preparation": "4/5 portie groente | 1 portie eiwit | 1 portie zuivel",
+        "banner_image": null,
+        "description": "Verwarm de oven voor op 200 graden. Doe olijfolie in een pan en voeg het gehakt, de gesneden ui en oregano toe en bak het geheel rondom bruin. Voeg de tomatenpulp toe en laat het geheel 15 minuten zacht doorkoken. Breng op smaak met peper. Gril de plakken aubergine in ongeveer 6 minuten gaar. Schep het gehaktmengsel in de ovenschaal en leg de plakken aubergine eroverheen. Schep de bloemkoolpuree hierop. Strooi vervolgens de geraspte kaas over het geheel en zet de ovenschaal 20 minuten in de oven, tot de kaas goudbruin is. ",
+        "read_time": [
+            3600,
+            0
+        ],
+        "average_ranking": null,
+        "likes": null,
+        "title": "Ovenschotel van aubergine met bloemkoolpuree",
+        "step": 2,
+        "persons": 2,
+        "ingredients": "250 gr. rundergehakt | 150 gr. bloemkool, gepureerd | 60 gr. 30+ kaas, geraspt | 150 gr. aubergine, in lengte gesneden | 100 gr. tomatenpulp uit blik | 2 tl oregano, gedroogd | 1 teen knoflook | 1 ui, gesneden | 2 el olijfolie | peper"
+    },
+    {
+        "recipe_id": 5,
+        "pdf_path": "src/PDF/s6-biefstukaardappelchampignons-022020.pdf",
+        "popularity": 5,
+        "views": 8197,
+        "preparation": "1 portie groente | 1 portie eiwit | 1 portie aardappelen, rijst, pasta | ½ portie zuivel",
+        "banner_image": null,
+        "description": "Verwarm de oven voor op 180 graden. Laat de biefstuk op kamertemperatuur komen voordat je deze gaat bereiden. Kruid de biefstuk naar smaak. Bak de aardappelen in een pan mooi bruin. Snijd de champignons ondertussen in stukken en bak ze met de knoflook in een aparte pan. Als de champignons beetgaar zijn, voeg je de zuivelspread toe. Roer door elkaar. Voeg de bieslook naar smaak toe door deze boven de pan te knippen. Was de cherrytomaatjes en leg deze in een schaal. Meng met de balsamicoazijn, olijfolie en een snufje peper en zet in de oven. Wacht tot de cherrytomaatjes beginnen te scheuren. Bak de biefstuk in een pan. De bereidingstijd is afhankelijk van de dikte van de biefstuk en je persoonlijke voorkeur.",
+        "read_time": [
+            1800,
+            0
+        ],
+        "average_ranking": null,
+        "likes": null,
+        "title": "Biefstuk met champignonsaus, gebakken aardappels en balsamicotomaatjes",
+        "step": 6,
+        "persons": 1,
+        "ingredients": "125 gr. biefstuk | 50 gr. aardappelen, gekookt | 125 gr. champignons | 125 gr. cherrytomaatjes | 25 gr. zuivelspread | verse bieslook | 1 teen knoflook, geperst | 1 el olijfolie | peper"
+    },
+    {
+        "recipe_id": 6,
+        "pdf_path": "src/PDF/s6-pho-vietnamese-noedelsoep-042020.pdf",
+        "popularity": 2,
+        "views": 8914,
+        "preparation": "¼ portie groente | ½ portie eiwit | ¼ portie aardappelen, rijst, pasta",
+        "banner_image": null,
+        "description": "Rooster het kaneelstokje, korianderzaad, kardemompeulen, steranijs en kruidnagels ongeveer 5 minuten in een droge koekenpan. Vul daarna een theezakje met deze kruiden. Vul een pan met het water en voeg het theezakje hieraan toe. Voeg daarna de ui, gember en het bouillonblokje toe. Laat ongeveer 2 uur trekken. Zeef de bouillon en voeg de vissaus aan de bouillon toe. Vul een grote kom met de noedels en de rauwe stukjes biefstuk. Deze garen vanzelf in de hete bouillon. Voeg de groente, basilicum en bosui toe en schenk de bouillon in. Voor de liefhebber: maak de soep af met een beetje limoen en/of rode peper. ",
+        "read_time": [
+            8100,
+            0
+        ],
+        "average_ranking": null,
+        "likes": null,
+        "title": "Pho – Vietnamese noedelsoep",
+        "step": 6,
+        "persons": 4,
+        "ingredients": "1 ui, in stukken | 4 cm gember | 2 tl korianderzaad | 1 kaneelstokje | 2 kardemompeulen | 1 steranijs | 2 kruidnagels | 2 l water | 1 blokje groentebouillon | 1 el vissaus | 250 gr. kogelbiefstuk, rauw en in stukken | 100 gr. volkoren noedels, gekookt | 1 wortel in dunne plakjes, gehalveerd | 50 gr. taugé | 3 takjes Thaise basilicum | 2 bosuitjes, in ringen | 1 rode peper, fijngesneden | 1 partje limoen"
+    }
+]
