@@ -56,6 +56,7 @@
 
 .statContainer {
     display: flex;
+    min-width: 100vw;
 }
 
 .heightContainer,
@@ -90,7 +91,8 @@
     flex-direction: column;
 }
 
-.consulentContainer>h3 {
+.consulentContainer>h3,
+h3 {
     margin: 40px 0 0 20px;
     color: #DC6099;
     font-family: nos;
@@ -146,7 +148,7 @@
 }
 
 .consulentShrtct {
-    width: 336px;
+    width: 90%;
     height: 80px;
     background-color: white;
     border-radius: 10px;
@@ -159,11 +161,22 @@
     width: 80px;
     background-color: #2B2E6B;
     border-radius: 10px 0 0 10px;
+    display: flex;
+    position: relative;
 }
 
-.iconAccount {
+.consulentProfileImg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 66px;
+    height: 66px;
+}
+
+.iconConsulent {
     font-size: 24px;
-    margin: auto 0 auto 20px;
+    margin: auto 0 auto 10px;
 }
 
 .consulentContent {
@@ -173,11 +186,73 @@
 }
 
 .consulentContent>P:nth-child(1) {
-    margin: 15px 0 0 15px;
+    margin: 16px 0 0 10px;
     font-size: 14px;
 }
 
 .consulentContent>p:nth-child(2) {
-    margin: 10px 0 auto 15px;
+    margin: 5px 0 auto 10px;
     font-size: 14px;
+    max-width: 208px;
+    word-break: break-all;
+}
+
+
+/* Statcontainer */
+
+.IonCardStats {
+    display: flex;
+    flex-direction: column;
+}
+
+.userStatContainer {
+    width: 90%;
+    height: 40%;
+    background-color: white;
+    margin: 20px auto 40px auto;
+}
+
+.userStatContainerContent {
+    padding: 0px;
+}
+
+.weightMomentCircle {
+    width: 46px;
+    height: 46px;
+    border: 4px solid #2B2E6B;
+    margin: -42px 10px 15px 240px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 48px;
+    border-radius: 30px;
+    padding: 3px;
+    position: relative;
+    font-weight: bold;
+}
+
+.toProgress {
+    min-width: 140px;
+    width: 50%;
+    height: 30px;
+    border-radius: 70px !important;
+    margin: 0px auto 15px auto;
+    --background: #2B2E6B;
+    color: white;
+    outline: none;
+    border: none;
+    display: flex;
+    box-sizing: content-box;
+    padding: 5px;
+}
+
+.statTitle {
+    color: #2B2E6B;
+    font-weight: bold;
+    margin: 10px 0 0 0;
+    font-size: 16px;
+}
+
+.statDate {
+    margin: 5px 0 0 0;
+    display: flex;
 }

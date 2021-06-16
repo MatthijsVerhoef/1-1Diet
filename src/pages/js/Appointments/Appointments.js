@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Logo from '../../../images/logodiet.svg'
 import TopNav from '../TopNav'
 import '../../styles/Appointments/Appointments.css'
@@ -6,10 +6,12 @@ import { IonButton, IonCard, IonCol, IonContent, IonDatetime, IonIcon, IonInput,
 import { calendar, chevronBackOutline, close } from 'ionicons/icons'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import CurrentUser from '../../../Data/CurrentUser.json'
+import SeeAppointment from './SeeAppointment'
 
 function Appointments() {
-    const [user, setUser] = useState(true)
+    const [currentUser, setCurrentUser] = useState(CurrentUser[0])
     const [showCalendar, setShowCalendar] = useState(false)
     const [value, onChange] = useState(new Date())
     const [modalController, setModalController] = useState(false)
@@ -18,29 +20,54 @@ function Appointments() {
     const [time, setTime] = useState("")
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
-    const [nummer, setNummer] = useState("")
+    const [number, setNumber] = useState("")
     const [comment, setComment] = useState("")
     const [confirmModal, setConfirmModal] = useState({ isOpen: false })
+    const [appointment, setAppointment] = useState([])
+
+    // useEffect(() => {
+    //     axios({
+    //         "method": "GET",
+    //         "url": "http://31.14.96.253/appointments",
+    //       })
+    //       .then((response) => {
+    //         setAppointment(response.data)
+    //       })
+    //       .catch((error) => {
+    //         console.log(error)
+    //       })
+    // },[setAppointment])
+
+    function setNewAppointment() {
+        setAppointment([{
+            selectConsulent,
+            date,
+            time,
+            name,
+            email,
+            number,
+            comment
+        }])
+    }
 
     return (
         <IonContent className="calendarPage">
             <TopNav />
             <div className="calendarContent">
-                {user ? (
+                {currentUser ? (
                     <div className="calendarContainer">
                         <div className="datePicker">
                             <button className={showCalendar ? "currentWeek" : "currentWeekActive"} onClick={() => setShowCalendar(false)}>Week 22</button>
                             <button className={showCalendar ? "openCalendarActive" : "openCalendar"} onClick={() => setShowCalendar(current => !current)}>Mei</button>
-                            <IonIcon icon={calendar} className="toCurrentDate"></IonIcon>
+                            <IonIcon icon={calendar} className="toCurrentDate" onClick={() => console.log(appointment)}></IonIcon>
                         </div>
-                        <div className="calendarPicker">
-                            {showCalendar ? (
-                                <Calendar onChange={onChange} value={value} className="calendar" />
-                            ) : (null)}
-                        </div>
-                        <div className="calendarSlider"></div>
                         <div className="events">
                             <IonButton color="none" className="makeAppointment" onClick={() => setModalController(current => !current)}>Afspraak inplannen</IonButton>
+                        </div>
+                        <div className="appointmentContainer">
+                            {appointment.map((appointment) => {
+                                return <SeeAppointment key={appointment.name} consulent={appointment.selectConsulent} date={appointment.date} time={appointment.time} name={appointment.name} email={appointment.email} number={appointment.number} comment={appointment.comment} />
+                            })}
                         </div>
                     </div>
                 ) : (
@@ -60,11 +87,7 @@ function Appointments() {
                         <div className="appointment">
                             <h2>Uw gegevens</h2>
                             <IonSelect placeholder="Kies je consulent" className="selectConsulent" onIonChange={(e) => setSelectConsulent(e.detail.value)}>
-                                <IonSelectOption>Tim</IonSelectOption>
-                                <IonSelectOption>Hugo</IonSelectOption>
-                                <IonSelectOption>Aswin</IonSelectOption>
-                                <IonSelectOption>Ilyas</IonSelectOption>
-                                <IonSelectOption>Matthijs</IonSelectOption>
+                                <IonSelectOption>{currentUser.consulent[0].consulent_name}</IonSelectOption>
                             </IonSelect>
                             <IonItem className="flexitem" lines="none">
                                 <IonDatetime onIonChange={(e) => setDate(e.detail.value)} className="selectDate" min="2021-05-27" max="2023-12-31" displayTimezone="utc" placeholder="Kies Datum" displayFormat="DD/MM/YYYY"></IonDatetime>
@@ -77,7 +100,7 @@ function Appointments() {
                                 <IonInput className="inputIon" onIonChange={(e) => setEmail(e.target.value)} inputMode="email" autocomplete="email" minlength="5" name="email" type="email" placeholder="E-mail" required="true"></IonInput>
                             </IonItem>
                             <IonItem className="item" lines="none">
-                                <IonInput className="inputIon" onIonChange={(e) => setNummer(e.target.value)} inputMode="tel" autocomplete="tel" name="telefoonnummer" minlength="10" maxlength="10" type="tel" placeholder="Telefoonnummer" required="true"></IonInput>
+                                <IonInput className="inputIon" onIonChange={(e) => setNumber(e.target.value)} inputMode="tel" autocomplete="tel" name="telefoonnummer" minlength="10" maxlength="10" type="tel" placeholder="Telefoonnummer" required="true"></IonInput>
                             </IonItem>
                             <IonItem className="item" lines="none">
                                 <IonTextarea onIonChange={(e) => setComment(e.target.value)} className="comment" name="comment" spellcheck="true" auto-grow="true" placeholder="Zet hier je opmerking"></IonTextarea>
@@ -90,15 +113,15 @@ function Appointments() {
                                 <img className="logo" src={Logo} onClick={() => console.log(name)}></img>
                             </div>
                             <IonCol className="modalContent">
-                                <h2>Bevestig afspraak</h2>
+                                <h2 onClick={() => console.log(appointment)}>Bevestig afspraak</h2>
                                 <p><strong>Naam:</strong> {name}</p>
                                 <p><strong>Email:</strong> {email}</p>
-                                <p><strong>Tel. nummer:</strong> {nummer}</p>
+                                <p><strong>Tel. nummer:</strong> {number}</p>
                                 <p><strong>Consulent:</strong> {selectConsulent}</p>
                                 <p><strong>Datum:</strong> {date}</p>
                                 <p><strong>Tijd:</strong> {time}</p>
                                 <p className="comment"><strong>Bericht:</strong> {comment}</p>
-                                <IonButton className="submit" color="none">Afspraak opslaan</IonButton>
+                                <IonButton className="submit" color="none" onClick={() => { setNewAppointment(); setModalController(false); setConfirmModal({ isOpen: false }) }}>Afspraak opslaan</IonButton>
                                 <a className="borderBottom"></a>
                             </IonCol>
                         </IonModal>

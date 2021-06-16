@@ -1,6 +1,6 @@
-import { IonButton, IonCard, IonContent, IonHeader, IonIcon, IonNav, IonPage, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
+import { IonButton, IonCard, IonContent, IonHeader, IonIcon, IonLabel, IonPage, IonSlides, IonTitle, IonToolbar } from '@ionic/react';
 import './Home.css';
-import { newspaperOutline, peopleOutline, scaleOutline, appsOutline, informationOutline, bookOutline, nutritionOutline } from 'ionicons/icons'
+import { newspaperOutline, peopleOutline, scaleOutline, appsOutline, informationOutline, bookOutline, nutritionOutline, trophyOutline, arrowForward } from 'ionicons/icons'
 import React from 'react'
 import TopNav from './js/TopNav'
 import { Link } from 'react-router-dom';
@@ -11,12 +11,15 @@ const Home: React.FC = () => {
             <TopNav />
             <div className="Home">
                 <div className="homeContent">
-                    <h1>Acties</h1>
+                <div className="sliderHeader">
+                        <IonLabel className="HomeHeader">Acties</IonLabel>
+                        <IonIcon icon={arrowForward} className="SliderIconHome"></IonIcon>
+                    </div>
                     <div className="actionBtns">
                         <Link to="/bmi"><IonCard className="actionSlideBtn"><IonIcon icon={scaleOutline} className="icon"></IonIcon><div className="actionBottom"><p>Mijn BMI</p></div></IonCard></Link>
                         <Link to="/searchConsulents"><IonCard className="actionSlideBtn"><IonIcon icon={peopleOutline} className="icon"></IonIcon><div className="actionBottom"><p>Consulent zoeken</p></div></IonCard></Link>
                         <Link to="/experience"><IonCard className="actionSlideBtn"><IonIcon icon={bookOutline} className="icon"></IonIcon><div className="actionBottom"><p>Ervaringen</p></div></IonCard></Link>
-                        <Link to="/aboutinfo"><IonCard className="actionSlideBtn"><IonIcon icon={informationOutline} className="icon"></IonIcon><div className="actionBottom"><p>Vraag advies</p></div></IonCard></Link>
+                        <Link to="/voortgang"><IonCard className="actionSlideBtn"><IonIcon icon={trophyOutline} className="icon"></IonIcon><div className="actionBottom"><p>Mijn voortgang</p></div></IonCard></Link>
                     </div>
                     <h2>Informatie</h2>
                     <div className="infoBtns">

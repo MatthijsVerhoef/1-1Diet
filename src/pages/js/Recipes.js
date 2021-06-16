@@ -1,9 +1,10 @@
-import { IonButton, IonInput, IonCard, IonSlide, IonSlides, IonContent } from '@ionic/react'
+import { IonButton, IonInput, IonCard, IonSlide, IonSlides, IonContent, IonButtons, IonItemGroup } from '@ionic/react'
 import React, { useEffect, useState } from 'react'
 import TopNav from '../js/TopNav'
 import '../styles/Recipes.css'
 import RecipeData from '../../Data/RecipesData.json'
 import RecipeStyle from '../js/Recipes/Recipestyle'
+import axios from 'axios'
 
 function Recipes() {
     const [recipes, setRecipes] = useState([])
@@ -13,23 +14,37 @@ function Recipes() {
         return recipe.title.toLowerCase().includes( searchFilter.toLowerCase() )
     })
 
+    useEffect(() => {
+        axios({
+            "method": "GET",
+            "url": "http://31.14.96.253/recipes'",
+          })
+          .then((response) => {
+            setRecipes(response.data)
+          })
+          .catch((error) => {
+            console.log(error) 
+          })
+    },[setRecipes])
+
     return (
         <IonContent>
             <div className="recipes">
                 <TopNav />
                 <div className="recipeContent">
-                    <h1 onClick={() => console.log(RecipeData)}>Recepten</h1>
+                    <h1 onClick={() => console.log(recipes)}>Recepten</h1>
                     <IonInput placeholder="Zoeken..." className="recipeSearch" onIonChange={(e) => setSearchFilter(e.target.value)}></IonInput>
                     <div className="buttonSlider">
-                        <IonSlides color="none">
-                            <IonSlide className="recipeFilter">Alle</IonSlide>
-                            <IonSlide className="recipeFilter">Shakes</IonSlide>
-                            <IonSlide className="recipeFilter">Soepen</IonSlide>
-                            <IonSlide className="recipeFilter">Repen & Bites</IonSlide>
-                            <IonSlide className="recipeFilter">Warme maaltijden</IonSlide>
-                            <IonSlide className="recipeFilter">Desserts</IonSlide>
-                            <IonSlide className="recipeFilter">Soepen</IonSlide>
-                        </IonSlides>
+                        <div color="none" className="buttonContainer">
+                            <IonButton className="recipeFilter">Alle recepten</IonButton>
+                            <IonButton className="recipeFilter">Stap 1</IonButton>
+                            <IonButton className="recipeFilter">Stap 2</IonButton>
+                            <IonButton className="recipeFilter">Stap 3</IonButton>
+                            <IonButton className="recipeFilter">Stap 4</IonButton>
+                            <IonButton className="recipeFilter">Stap 5</IonButton>
+                            <IonButton className="recipeFilter">Stap 6</IonButton>
+                            <IonButton className="recipeFilter">Stap 7</IonButton>
+                        </div>
                     </div>
                     <div className="results">
                         {filteredRecipes.map((recipedetail, index) => {
