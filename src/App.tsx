@@ -15,6 +15,7 @@ import ClientStory from './pages/js/Stories/ClientStory';
 import AboutApp from './pages/js/AboutApp'
 import RecipeInfo from './pages/js/Recipes/RecipeInfo'
 import Progress from './pages/js/Voortgang/Progress'
+import AppointmentInfo from './pages/js/Appointments/AppointmentInfo'
 
 const App: React.FC = () => (
   <IonApp>
@@ -37,6 +38,7 @@ const App: React.FC = () => (
         <Route path="/aboutApp" component={AboutApp} />
         <Route path="/recipe/:title" component={RecipeInfo} />
         <Route path="/voortgang" component={Progress} />
+        <Route path="/afspraak/:datum_tijd" component={AppointmentInfo} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

@@ -5,22 +5,28 @@ import { close } from 'ionicons/icons'
 import { Link } from 'react-router-dom'
 import Logo from '../../../images/logodiet.svg'
 import '../../styles/Recipes/RecipeStyle.css'
-import RecipeData from '../../../Data/RecipesData.json'
 
 function RecipeInfo() {
     const { title } = useParams();
-    const [recipes, setRecipes] = useState(RecipeData)
+    const [recipes, setRecipes] = useState([])
 
     const recipeDetails = recipes.filter((recipe) => {
         return recipe.title === title
     })
+
+    useEffect(async () => {
+        const api_url = 'http://31.14.96.253/recipes'
+        var response = await fetch(api_url)
+        var data = await response.json()
+        setRecipes(data)
+    }, [setRecipes])
 
     return (
         <IonContent className="recipeDetails">
             <div className="recipeDetailContent">
                 <div className="navigationInfo">
                     <Link to="/recipes"><IonIcon icon={close} className="goBack"></IonIcon></Link>
-                    <IonImg className="logo" src={Logo} onClick={() => console.log(recipeDetails)}></IonImg>
+                    <IonImg className="logo" src={Logo}></IonImg>
                 </div>
                 {recipeDetails.map((recipe, recipe_id) => {
                     return <div className="recipeDetails" key={recipe_id}>

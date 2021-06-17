@@ -22,7 +22,7 @@ function Account() {
             <div>
                 <TopNav />
                 <div className="accountPageContent">
-                    <button className="settingsBtn" onClick={() => console.log(currentUser.user_currentweight)}><IonIcon icon={settingsOutline} className="iconProfile"></IonIcon></button>
+                    <button className="settingsBtn"><IonIcon icon={settingsOutline} className="iconProfile"></IonIcon></button>
                     <IonAvatar className="Avatar"><IonIcon icon={person} className="avatarIcon"></IonIcon></IonAvatar>
                     <p>Welkom {currentUser.user_firstname} {currentUser.user_lastname} </p>
                     <p>{today}</p>

@@ -105,14 +105,15 @@
     font-weight: bolder;
     font-size: 28px;
     margin: 20px 0 0 20px;
-    color: #2B2E6B;
+    color: #DC6099;
+    font-family: nos;
 }
 
 .stappenplanImage {
     width: 340px;
     height: fit-content;
     background-color: white;
-    margin: 20px auto 0 16px;
+    margin: 30px auto 0 16px;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -121,8 +122,9 @@
 .stappenplanImage>h1 {
     font-weight: bolder;
     font-size: 28px;
-    color: #2B2E6B;
-    margin: 25px auto 0 auto;
+    color: #DC6099;
+    font-family: nos;
+    margin: 20px auto 0 auto;
 }
 
 .arrowBack {
@@ -151,8 +153,8 @@
 .stappenPlan>p {
     font-size: 14px;
     color: #2B2E6B;
-    margin: 20px 0 0 16px;
-    width: 340px;
+    margin: 15px 0 0 20px;
+    width: 325px;
 }
 
 .stappenplanImage>img {

@@ -44,7 +44,6 @@ function DietInfo() {
                 {showPlan ?
                     <div className="stappenPlan">
                         <div className="stappenPlanHeader">
-                            <button className="arrowBack" onClick={() => setShowPlan(false)} ><IonIcon icon={arrowBackOutline} className="backIcon"></IonIcon></button>
                             <h1>Méér dan een dieet</h1>
                         </div>
                         <p>Het stappenplan is naast een dieet ook een bewustwordingsproces om te voorkomen dat je na het dieet terugvalt in oude gewoontes. Daar ligt de kracht en het success van dit dieet. We besteden aandacht aan alle aspecten van gewichtsbeheersing: Voeding, mind en bewegen.</p>

@@ -16,8 +16,7 @@ function Progress() {
 
     //Indicator moments
     var Indicator = (currentUser.user_next_oppointment === currentUser.user_appointments.date)
-   
-
+ 
     return (
         <IonContent>
             <TopNav />
@@ -63,7 +62,7 @@ function Progress() {
                         </IonCard>
                     })}
                     <div className="sliderHeader">
-                        <IonLabel className="SubTitle">Producten</IonLabel>
+                        <IonLabel className="SubTitle">Producten stap {currentUser.user_step}</IonLabel>
                         <IonIcon icon={arrowForward} className="sliderIcon"></IonIcon>
                     </div>
                     <div className="productsContainer">
@@ -75,7 +74,7 @@ function Progress() {
                                 </IonCardContent>
                             </IonCard>
                         })}
-                    </div>
+                    </div> 
                 </div>
                 <a className="borderBottom"></a>
             </div>

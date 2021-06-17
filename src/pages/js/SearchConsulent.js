@@ -17,7 +17,7 @@ function SearchConsulent() {
     );
 
     return (
-        <IonContent>
+        <IonContent className="consulentPageContent">
             <div className="consulentPage">
                 <TopNav />
                 <div className="consulentContent">

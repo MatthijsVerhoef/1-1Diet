@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Logo from '../../../images/logodiet.svg'
 import TopNav from '../TopNav'
 import '../../styles/Appointments/Appointments.css'
-import { IonButton, IonCard, IonCol, IonContent, IonDatetime, IonIcon, IonInput, IonItem, IonItemOption, IonLabel, IonModal, IonSelect, IonSelectOption, IonTab, IonText, IonTextarea } from '@ionic/react'
+import { IonButton, IonCard, IonCol, IonContent, IonDatetime, IonIcon, IonInput, IonItem, IonItemOption, IonLabel, IonModal, IonSelect, IonSelectOption, IonTab, IonText, IonTextarea, IonTitle } from '@ionic/react'
 import { calendar, chevronBackOutline, close } from 'ionicons/icons'
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
@@ -25,30 +25,37 @@ function Appointments() {
     const [confirmModal, setConfirmModal] = useState({ isOpen: false })
     const [appointment, setAppointment] = useState([])
 
-    // useEffect(() => {
-    //     axios({
-    //         "method": "GET",
-    //         "url": "http://31.14.96.253/appointments",
-    //       })
-    //       .then((response) => {
-    //         setAppointment(response.data)
-    //       })
-    //       .catch((error) => {
-    //         console.log(error)
-    //       })
-    // },[setAppointment])
+    useEffect(async () => {
+        const api_url = 'http://31.14.96.253/appointments'
+        var response = await fetch(api_url)
+        var data = await response.json()
+        setAppointment(data)
+    }, [setAppointment])
 
-    function setNewAppointment() {
-        setAppointment([{
-            selectConsulent,
-            date,
-            time,
-            name,
-            email,
-            number,
-            comment
-        }])
+    // Get current month name
+    var d = new Date()
+    const monthNames = ["Januari", "Februari", "Maart", "April", "Mei", "Juni",
+        "Juli", "Augustus", "September", "Oktober", "November", "December"
+    ];
+
+    const month = (monthNames[d.getMonth()]);
+
+    // Get current week of year
+    function getWeekNumber(d) {
+        // Copy date so don't modify original
+        d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+        // Set to nearest Thursday: current date + 4 - current day number
+        // Make Sunday's day number 7
+        d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+        // Get first day of year
+        var yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+        // Calculate full weeks to nearest Thursday
+        var weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+        // Return array of year and week number
+        return [weekNo];
     }
+
+    var result = getWeekNumber(new Date());
 
     return (
         <IonContent className="calendarPage">
@@ -57,16 +64,17 @@ function Appointments() {
                 {currentUser ? (
                     <div className="calendarContainer">
                         <div className="datePicker">
-                            <button className={showCalendar ? "currentWeek" : "currentWeekActive"} onClick={() => setShowCalendar(false)}>Week 22</button>
-                            <button className={showCalendar ? "openCalendarActive" : "openCalendar"} onClick={() => setShowCalendar(current => !current)}>Mei</button>
-                            <IonIcon icon={calendar} className="toCurrentDate" onClick={() => console.log(appointment)}></IonIcon>
+                            <button className={showCalendar ? "currentWeek" : "currentWeekActive"} onClick={() => setShowCalendar(false)}>Week {result}</button>
+                            <button className={showCalendar ? "openCalendarActive" : "openCalendar"} onClick={() => setShowCalendar(current => !current)}>{month}</button>
+                            <IonIcon icon={calendar} className="toCurrentDate"></IonIcon>
                         </div>
                         <div className="events">
                             <IonButton color="none" className="makeAppointment" onClick={() => setModalController(current => !current)}>Afspraak inplannen</IonButton>
+                            <IonTitle className="Title">Mijn afspraken</IonTitle>
                         </div>
                         <div className="appointmentContainer">
                             {appointment.map((appointment) => {
-                                return <SeeAppointment key={appointment.name} consulent={appointment.selectConsulent} date={appointment.date} time={appointment.time} name={appointment.name} email={appointment.email} number={appointment.number} comment={appointment.comment} />
+                                return <SeeAppointment key={appointment.consulent} consulent={appointment.consulent} date={appointment.datum_tijd} time={appointment.time} name={appointment.name} email={appointment.email} number={appointment.number} comment={appointment.comment} />
                             })}
                         </div>
                     </div>
@@ -121,7 +129,7 @@ function Appointments() {
                                 <p><strong>Datum:</strong> {date}</p>
                                 <p><strong>Tijd:</strong> {time}</p>
                                 <p className="comment"><strong>Bericht:</strong> {comment}</p>
-                                <IonButton className="submit" color="none" onClick={() => { setNewAppointment(); setModalController(false); setConfirmModal({ isOpen: false }) }}>Afspraak opslaan</IonButton>
+                                <IonButton className="submit" color="none" onClick={() => { setModalController(false); setConfirmModal({ isOpen: false }) }}>Afspraak opslaan</IonButton>
                                 <a className="borderBottom"></a>
                             </IonCol>
                         </IonModal>

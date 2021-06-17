@@ -1,10 +1,11 @@
 import { IonCard, IonCardContent, IonText, IonIcon, IonItem, IonItemGroup } from '@ionic/react'
 import { calendarClearOutline, chevronForwardOutline } from 'ionicons/icons'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function SeeAppointment({ name, date, consulent, time, email, number, comment }) {
     return (
-        <IonCard className="AppointmentCard" lines="none">
+        <Link to={`/afspraak/${date}`}><IonCard className="AppointmentCard" lines="none" key={name}>
             <IonCardContent className="AppointmentCardContent">
                 <IonItem className="BlueBorderAppointment" lines="none">
                     <IonIcon icon={calendarClearOutline} className="AppointmentCalendarIcon"></IonIcon>
@@ -15,7 +16,7 @@ function SeeAppointment({ name, date, consulent, time, email, number, comment })
                 </IonItemGroup>
                 <IonIcon icon={chevronForwardOutline} className="AppointmentChevronIcon"></IonIcon>
             </IonCardContent>
-        </IonCard>
+        </IonCard></Link>
     )
 }
 

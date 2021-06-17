@@ -2,37 +2,29 @@ import { IonButton, IonInput, IonCard, IonSlide, IonSlides, IonContent, IonButto
 import React, { useEffect, useState } from 'react'
 import TopNav from '../js/TopNav'
 import '../styles/Recipes.css'
-import RecipeData from '../../Data/RecipesData.json'
 import RecipeStyle from '../js/Recipes/Recipestyle'
-import axios from 'axios'
 
 function Recipes() {
     const [recipes, setRecipes] = useState([])
     const [searchFilter, setSearchFilter] = useState("")
 
-    const filteredRecipes = RecipeData.filter( recipe => {
-        return recipe.title.toLowerCase().includes( searchFilter.toLowerCase() )
+    const filteredRecipes = recipes.filter(recipe => {
+        return recipe.title.toLowerCase().includes(searchFilter.toLowerCase())
     })
 
-    useEffect(() => {
-        axios({
-            "method": "GET",
-            "url": "http://31.14.96.253/recipes'",
-          })
-          .then((response) => {
-            setRecipes(response.data)
-          })
-          .catch((error) => {
-            console.log(error) 
-          })
-    },[setRecipes])
+    useEffect(async () => {
+        const api_url = 'http://31.14.96.253/recipes'
+        var response = await fetch(api_url)
+        var data = await response.json()
+        setRecipes(data)
+    }, [setRecipes])
 
     return (
         <IonContent>
             <div className="recipes">
                 <TopNav />
                 <div className="recipeContent">
-                    <h1 onClick={() => console.log(recipes)}>Recepten</h1>
+                    <h1 onClick={() => {console.log(recipes)}}>Recepten</h1>
                     <IonInput placeholder="Zoeken..." className="recipeSearch" onIonChange={(e) => setSearchFilter(e.target.value)}></IonInput>
                     <div className="buttonSlider">
                         <div color="none" className="buttonContainer">
