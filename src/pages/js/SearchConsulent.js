@@ -9,7 +9,7 @@ function SearchConsulent() {
     const [male, setMale] = useState(true)
     const [female, setFemale] = useState(true)
     const { ref, map, google } = useGoogleMaps(
-        "AIzaSyCuTXK8P6Iag6LkcnEI_IRANwiv6w3s3Fk",
+        "",
         {
             center: { lat: 52.092876, lng: 5.104480 },
             zoom: 3,
